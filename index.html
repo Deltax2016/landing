@@ -16,13 +16,19 @@
 
   <link rel="stylesheet" href="./styles.css" />
 
-  <!-- VK Ads Pixel -->
-  <script>
-  !function(e,t,n,a){var i="vkanalytics",o=[];e[i]=e[i]||{init:function(){o.push(["init"].concat(Array.prototype.slice.call(arguments)))},hit:function(){o.push(["hit"].concat(Array.prototype.slice.call(arguments)))},event:function(){o.push(["event"].concat(Array.prototype.slice.call(arguments)))},_q:o};var s=t.createElement(n);s.async=1,s.src=a;var l=t.getElementsByTagName(n)[0];l.parentNode.insertBefore(s,l)}(window,document,"script","https://ads.vk.com/tag/?id=3765083");
-  vkanalytics.init("3765083");
-  vkanalytics.hit();
+  <!-- Top.Mail.Ru / VK Ads Pixel -->
+  <script type="text/javascript">
+  var _tmr = window._tmr || (window._tmr = []);
+  _tmr.push({id: "3765083", type: "pageView", start: (new Date()).getTime()});
+  (function (d, w, id) {
+    if (d.getElementById(id)) return;
+    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+    ts.src = "https://top-fwz1.mail.ru/js/code.js";
+    var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+  })(document, window, "tmr-code");
   </script>
-  <noscript><img src="https://ads.vk.com/tag/?id=3765083&type=pixel" style="position:absolute;left:-9999px;" alt="" /></noscript>
+  <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3765083;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
 </head>
 <body>
 
