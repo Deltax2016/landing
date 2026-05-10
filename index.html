@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0c0a" />
+  <title>СУТКИ. — сайт за 1 день / от 12 000 ₽</title>
+  <meta name="description" content="Студия молниеносной разработки. Лендинг под ключ за 24 часа — от 12 000 ₽. Сайты, дизайн, логотипы, Telegram- и MAX-боты, Mini Apps." />
+  <meta property="og:title" content="СУТКИ. — сайт за 1 день / от 12 000 ₽" />
+  <meta property="og:description" content="Лендинг за 24 часа. Сайты, дизайн, логотипы, боты, Mini Apps для Telegram и MAX." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- ==== GRAIN OVERLAY ==== -->
+  <svg class="grain-defs" aria-hidden="true" focusable="false">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0.55 0"/>
+    </filter>
+  </svg>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ==== ROLL EDGES (paper scroll metaphor) ==== -->
+  <div class="roll roll-top" aria-hidden="true">
+    <span class="roll-shine"></span>
+  </div>
+  <div class="roll roll-bottom" aria-hidden="true">
+    <span class="roll-shine"></span>
+  </div>
+
+  <!-- ==== INTRO LOADER ==== -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro-bar"></div>
+    <div class="intro-mark">СУТКИ<span>.</span></div>
+  </div>
+
+  <!-- ==== NAV ==== -->
+  <header class="nav" id="top">
+    <a href="#top" class="brand" data-cursor="hover">
+      СУТКИ<span>.</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about" data-cursor="hover">/что такое лендинг</a>
+      <a href="#services" data-cursor="hover">/услуги</a>
+      <a href="#process" data-cursor="hover">/процесс</a>
+      <a href="#contact" data-cursor="hover">/связаться</a>
+    </nav>
+    <a href="#contact" class="nav-cta magnetic" data-cursor="hover">
+      <span>заказать</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4.5M11 3V9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ==== HERO ==== -->
+    <section class="hero" data-section>
+      <!-- Morphing background blob -->
+      <svg class="blob" viewBox="0 0 600 600" aria-hidden="true">
+        <defs>
+          <radialGradient id="blobGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ff7a3d" stop-opacity="0.55"/>
+            <stop offset="55%" stop-color="#ff4a16" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#ff4a16" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <path fill="url(#blobGrad)">
+          <animate attributeName="d" dur="14s" repeatCount="indefinite" values="
+            M427,316Q392,382,323,418Q254,454,184,418Q114,382,107,316Q100,250,131,184Q162,118,232,103Q302,88,371,118Q440,148,447,199Q454,250,427,316Z;
+            M438,302Q414,354,372,408Q330,462,256,455Q182,448,131,398Q80,348,99,275Q118,202,162,156Q206,110,278,109Q350,108,408,150Q466,192,452,221Q438,250,438,302Z;
+            M414,310Q380,370,318,418Q256,466,192,422Q128,378,108,314Q88,250,121,191Q154,132,222,108Q290,84,355,124Q420,164,432,207Q444,250,414,310Z;
+            M427,316Q392,382,323,418Q254,454,184,418Q114,382,107,316Q100,250,131,184Q162,118,232,103Q302,88,371,118Q440,148,447,199Q454,250,427,316Z
+          "/>
+        </path>
+      </svg>
+
+      <div class="hero-grid">
+        <div class="hero-pill">
+          <span class="dot-pulse"></span>
+          <span>свободные слоты на эту неделю · май 2026</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="reveal-line"><span class="rl-inner">сайт.</span></span>
+          <span class="reveal-line"><span class="rl-inner"><em>за&nbsp;сутки.</em></span></span>
+        </h1>
+
+        <p class="hero-sub reveal-line"><span class="rl-inner">студия молниеносной разработки. лендинг под ключ за 24&nbsp;часа — от&nbsp;<b>12&nbsp;000 ₽</b>. без воды, без бесконечных согласований, без «давайте через&nbsp;месяц».</span></p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary magnetic" data-cursor="hover">
+            <span>заказать сайт</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#services" class="btn ghost magnetic" data-cursor="hover">
+            <span>посмотреть услуги</span>
+          </a>
+        </div>
+
+        <div class="hero-meta" data-parallax="-0.05">
+          <div class="hero-meta-item">
+            <span class="label">[01]</span>
+            <span class="value">24 часа</span>
+            <span class="cap">типичный срок<br/>сдачи лендинга</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="label">[02]</span>
+            <span class="value">12 000 ₽</span>
+            <span class="cap">стартовая цена<br/>под ключ</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="label">[03]</span>
+            <span class="value">11 услуг</span>
+            <span class="cap">сайты, дизайн,<br/>боты, mini apps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>лендинг</span><i>★</i>
+          <span>интернет-магазин</span><i>★</i>
+          <span>ресторан</span><i>★</i>
+          <span>корпоративный сайт</span><i>★</i>
+          <span>дизайн в figma</span><i>★</i>
+          <span>логотип</span><i>★</i>
+          <span>telegram-бот</span><i>★</i>
+          <span>max-бот</span><i>★</i>
+          <span>mini app</span><i>★</i>
+          <span>лендинг</span><i>★</i>
+          <span>интернет-магазин</span><i>★</i>
+          <span>ресторан</span><i>★</i>
+          <span>корпоративный сайт</span><i>★</i>
+          <span>дизайн в figma</span><i>★</i>
+          <span>логотип</span><i>★</i>
+          <span>telegram-бот</span><i>★</i>
+          <span>max-бот</span><i>★</i>
+          <span>mini app</span><i>★</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== ABOUT LANDING ==== -->
+    <section class="about" id="about" data-section>
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">/01 — что такое лендинг</span>
+          <h2 class="section-title">
+            <span class="reveal-line"><span class="rl-inner">это <em>одна страница</em>,</span></span>
+            <span class="reveal-line"><span class="rl-inner">которая продаёт.</span></span>
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card" data-stagger>
+            <div class="about-num">01</div>
+            <h3>одна цель</h3>
+            <p>лендинг (от англ. <i>landing page</i>) — это сайт-«витрина» из одной страницы, заточенный ровно под одно действие: оставить заявку, купить, записаться, скачать. без меню, лишних разделов и блога.</p>
+          </article>
+
+          <article class="about-card" data-stagger>
+            <div class="about-num">02</div>
+            <h3>зачем он вам</h3>
+            <p>идеален для запуска услуги, продукта, акции, мероприятия или личного бренда. конверсия в 3–5 раз выше обычного сайта именно за счёт фокуса на одном офере.</p>
+          </article>
+
+          <article class="about-card" data-stagger>
+            <div class="about-num">03</div>
+            <h3>почему за сутки</h3>
+            <p>у нас есть отлаженный процесс: дизайн-система, библиотека блоков, готовая инфраструктура хостинга и домена. за 24 часа вы получаете живой сайт по своей ссылке, а не обещание.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== MAIN OFFER ==== -->
+    <section class="offer" data-section>
+      <div class="offer-bg" data-parallax="-0.12"></div>
+      <div class="container">
+        <div class="offer-tag">/02 — главное</div>
+        <div class="offer-row">
+          <h2 class="offer-title">
+            <span class="reveal-line"><span class="rl-inner">лендинг</span></span>
+            <span class="reveal-line"><span class="rl-inner"><em>за 1&nbsp;день.</em></span></span>
+          </h2>
+          <div class="offer-price">
+            <span class="from">от</span>
+            <span class="amount">12&thinsp;000 ₽</span>
+            <span class="unit">под ключ</span>
+          </div>
+        </div>
+
+        <div class="offer-grid">
+          <div class="offer-list">
+            <div class="oitem" data-stagger><span>→</span> авторский дизайн без шаблонов tilda</div>
+            <div class="oitem" data-stagger><span>→</span> адаптив под телефон и планшет</div>
+            <div class="oitem" data-stagger><span>→</span> анимации, скролл-эффекты, кастомный курсор</div>
+            <div class="oitem" data-stagger><span>→</span> форма заявок прямо в&nbsp;ваш email&nbsp;/ telegram</div>
+            <div class="oitem" data-stagger><span>→</span> подключение домена и hosting</div>
+            <div class="oitem" data-stagger><span>→</span> базовое seo, метатеги, og-картинки</div>
+            <div class="oitem" data-stagger><span>→</span> метрика яндекса или google analytics</div>
+            <div class="oitem" data-stagger><span>→</span> правки в течение 7&nbsp;дней — бесплатно</div>
+          </div>
+
+          <div class="offer-side">
+            <div class="offer-side-row">
+              <span>дедлайн</span>
+              <b>24 часа</b>
+            </div>
+            <div class="offer-side-row">
+              <span>предоплата</span>
+              <b>50%</b>
+            </div>
+            <div class="offer-side-row">
+              <span>созвон/бриф</span>
+              <b>20–30 мин</b>
+            </div>
+            <div class="offer-side-row">
+              <span>выдача</span>
+              <b>живой url</b>
+            </div>
+            <a href="#contact" class="btn primary fill magnetic" data-cursor="hover">
+              <span>хочу за сутки</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== SERVICES ==== -->
+    <section class="services" id="services" data-section>
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">/03 — все услуги</span>
+          <h2 class="section-title">
+            <span class="reveal-line"><span class="rl-inner">кроме <em>скоростных</em></span></span>
+            <span class="reveal-line"><span class="rl-inner">лендингов делаем:</span></span>
+          </h2>
+        </div>
+
+        <div class="services-grid">
+          <a href="#contact" class="service-card highlight" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">бестселлер</span>
+              <span class="sc-num">01</span>
+            </div>
+            <h3>лендинг за 1 день</h3>
+            <p>одна страница, авторский дизайн, форма заявок, домен, аналитика. сдача — за 24 часа.</p>
+            <div class="sc-foot">
+              <span class="sc-price">12&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">сайт</span>
+              <span class="sc-num">02</span>
+            </div>
+            <h3>многостраничный сайт</h3>
+            <p>4–8 страниц: «о нас», «услуги», «портфолио», блог, контакты. cms на выбор.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;35&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">e-commerce</span>
+              <span class="sc-num">03</span>
+            </div>
+            <h3>интернет-магазин</h3>
+            <p>каталог, карточки товара, корзина, оплата (юкасса/тинькофф/cloudpayments), интеграция со складом.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;65&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">horeca</span>
+              <span class="sc-num">04</span>
+            </div>
+            <h3>сайт для ресторана / кафе</h3>
+            <p>главная, меню (с фото), бронь столика, доставка, отзывы, инстаграм-лента, контакты с картой.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;40&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">b2b</span>
+              <span class="sc-num">05</span>
+            </div>
+            <h3>корпоративный сайт</h3>
+            <p>презентационный сайт компании: услуги, кейсы, команда, лицензии, новости, форма заявок, мультиязычность.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;80&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">design</span>
+              <span class="sc-num">06</span>
+            </div>
+            <h3>дизайн сайта в figma</h3>
+            <p>только макет, без вёрстки. подойдёт, если у вас уже есть программист. адаптивные экраны + ui-кит.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;25&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">brand</span>
+              <span class="sc-num">07</span>
+            </div>
+            <h3>логотип + мини-айдентика</h3>
+            <p>логотип в 3 версиях, цветовая палитра, шрифтовая пара, аватарки для соцсетей, гайд на 1 страницу.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;12&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">bot</span>
+              <span class="sc-num">08</span>
+            </div>
+            <h3>telegram-бот</h3>
+            <p>от простого автоответчика до магазина в боте: меню, оплата, рассылки, админ-панель, интеграции.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;20&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">bot</span>
+              <span class="sc-num">09</span>
+            </div>
+            <h3>бот для МАХ</h3>
+            <p>бот для российского мессенджера МАХ. меню, оплата, нотификации, интеграция с вашими системами.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;20&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">mini app</span>
+              <span class="sc-num">10</span>
+            </div>
+            <h3>mini app для telegram</h3>
+            <p>полноценное web-приложение внутри телеграма: каталог, личный кабинет, оплата ★stars или картой.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;60&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="#contact" class="service-card" data-stagger data-cursor="hover">
+            <div class="sc-head">
+              <span class="sc-tag">mini app</span>
+              <span class="sc-num">11</span>
+            </div>
+            <h3>mini app для МАХ</h3>
+            <p>встроенное приложение для МАХ: магазин, сервис, личный кабинет. под платформу российского рынка.</p>
+            <div class="sc-foot">
+              <span class="sc-price">от&nbsp;60&thinsp;000 ₽</span>
+              <span class="sc-arrow">↗</span>
+            </div>
+          </a>
+        </div>
+
+        <p class="services-note">
+          цены — стартовые, под типовой объём. финальная стоимость зависит от количества блоков, интеграций и нагрузки. оценим бесплатно за 20 минут разговора.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==== PROCESS ==== -->
+    <section class="process" id="process" data-section>
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">/04 — как работаем</span>
+          <h2 class="section-title">
+            <span class="reveal-line"><span class="rl-inner">от заявки до</span></span>
+            <span class="reveal-line"><span class="rl-inner"><em>живого url</em> — 24 часа.</span></span>
+          </h2>
+        </div>
+
+        <ol class="process-list">
+          <li class="step" data-stagger>
+            <div class="step-time">00:00</div>
+            <div class="step-body">
+              <h4>заявка и созвон</h4>
+              <p>вы оставляете заявку. в течение часа созваниваемся на 20–30 минут: о&nbsp;чём проект, кому продаём, что должен делать сайт. без брифов на 40&nbsp;вопросов.</p>
+            </div>
+          </li>
+          <li class="step" data-stagger>
+            <div class="step-time">02:00</div>
+            <div class="step-body">
+              <h4>прототип и направление</h4>
+              <p>через пару часов присылаем структуру и образец стиля. вы говорите «да» или вносите правки. идём дальше.</p>
+            </div>
+          </li>
+          <li class="step" data-stagger>
+            <div class="step-time">10:00</div>
+            <div class="step-body">
+              <h4>дизайн и&nbsp;вёрстка параллельно</h4>
+              <p>пока дизайнер допиливает экраны, разработчик уже верстает первые блоки. экономим половину времени.</p>
+            </div>
+          </li>
+          <li class="step" data-stagger>
+            <div class="step-time">22:00</div>
+            <div class="step-body">
+              <h4>домен, тесты, аналитика</h4>
+              <p>подключаем домен (или поддомен на нашем), формы, метрику, og-картинки. прогоняем по чеклисту pagespeed и адаптива.</p>
+            </div>
+          </li>
+          <li class="step" data-stagger>
+            <div class="step-time">24:00</div>
+            <div class="step-body">
+              <h4>передача и&nbsp;неделя бесплатных правок</h4>
+              <p>скидываем ссылку, доступы, инструкцию. 7 дней правки без доплат — пока сайт не «зайдёт» вам и&nbsp;аудитории.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==== STATS ==== -->
+    <section class="stats" data-section>
+      <div class="container">
+        <div class="kicker">/05 — в цифрах</div>
+        <div class="stats-grid">
+          <div class="stat" data-stagger>
+            <div class="stat-num" data-counter="24" data-suffix="">0</div>
+            <div class="stat-label">часа на лендинг<br/>под ключ</div>
+          </div>
+          <div class="stat" data-stagger>
+            <div class="stat-num" data-counter="12000" data-suffix=" ₽" data-format="space">0</div>
+            <div class="stat-label">стартовая цена<br/>прозрачно и&nbsp;фиксировано</div>
+          </div>
+          <div class="stat" data-stagger>
+            <div class="stat-num" data-counter="11" data-suffix="">0</div>
+            <div class="stat-label">направлений работ —<br/>от логотипа до mini&nbsp;app</div>
+          </div>
+          <div class="stat" data-stagger>
+            <div class="stat-num" data-counter="7" data-suffix=" дней">0</div>
+            <div class="stat-label">бесплатных правок<br/>после сдачи</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== CONTACT ==== -->
+    <section class="contact" id="contact" data-section>
+      <div class="container contact-wrap">
+
+        <div class="contact-left">
+          <span class="kicker">/06 — связаться</span>
+          <h2 class="section-title">
+            <span class="reveal-line"><span class="rl-inner">расскажите</span></span>
+            <span class="reveal-line"><span class="rl-inner">о <em>проекте.</em></span></span>
+          </h2>
+
+          <p class="contact-lead">
+            оставьте контакты — отвечу лично в течение часа в рабочее время. без ботов и&nbsp;колл-центров.
+          </p>
+
+          <div class="contact-direct">
+            <a href="tel:+79991110866" class="contact-direct-row magnetic" data-cursor="hover">
+              <span class="cd-label">телефон</span>
+              <span class="cd-value">+7 (999) 111-08-66</span>
+            </a>
+            <a href="https://t.me/mirabell" target="_blank" rel="noopener" class="contact-direct-row magnetic" data-cursor="hover">
+              <span class="cd-label">telegram</span>
+              <span class="cd-value">@mirabell</span>
+            </a>
+            <div class="contact-direct-row static">
+              <span class="cd-label">почта</span>
+              <span class="cd-value">emils99mail@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">как к вам обращаться?</label>
+            <input id="name" name="name" type="text" placeholder="имя" required autocomplete="name" />
+          </div>
+
+          <div class="field">
+            <label for="contact">телефон, telegram или email <span class="req">*</span></label>
+            <input id="contact" name="contact" type="text" placeholder="+7 ___, @username или mail@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="service">какая услуга интересна?</label>
+            <div class="select-wrap">
+              <select id="service" name="service" required>
+                <option value="лендинг за 1 день — 12 000 ₽" selected>лендинг за 1 день — 12 000 ₽</option>
+                <option value="многостраничный сайт — от 35 000 ₽">многостраничный сайт — от 35 000 ₽</option>
+                <option value="интернет-магазин — от 65 000 ₽">интернет-магазин — от 65 000 ₽</option>
+                <option value="сайт для ресторана / кафе — от 40 000 ₽">сайт для ресторана / кафе — от 40 000 ₽</option>
+                <option value="корпоративный сайт — от 80 000 ₽">корпоративный сайт — от 80 000 ₽</option>
+                <option value="дизайн сайта в Figma — от 25 000 ₽">дизайн сайта в Figma — от 25 000 ₽</option>
+                <option value="логотип + мини-айдентика — от 12 000 ₽">логотип + мини-айдентика — от 12 000 ₽</option>
+                <option value="Telegram-бот — от 20 000 ₽">telegram-бот — от 20 000 ₽</option>
+                <option value="бот для МАХ — от 20 000 ₽">бот для МАХ — от 20 000 ₽</option>
+                <option value="Mini App для Telegram — от 60 000 ₽">mini app для telegram — от 60 000 ₽</option>
+                <option value="Mini App для МАХ — от 60 000 ₽">mini app для МАХ — от 60 000 ₽</option>
+                <option value="другое / пока не знаю">другое / пока не знаю</option>
+              </select>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="select-chev"><path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="comment">расскажите про задачу</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="о чём проект, есть ли референсы, сроки, бюджет, доступы — всё, что считаете важным"></textarea>
+          </div>
+
+          <div class="form-foot">
+            <button type="submit" class="btn primary fill magnetic submit-btn" data-cursor="hover">
+              <span class="bt-text">отправить заявку</span>
+              <svg class="bt-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H6M14 4V12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="form-policy">отправляя форму, вы соглашаетесь с обработкой контактных данных для ответа на&nbsp;заявку.</span>
+          </div>
+
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==== FOOTER ==== -->
+  <footer class="foot">
+    <div class="container foot-wrap">
+      <div class="foot-brand">
+        СУТКИ<span>.</span>
+        <small>студия молниеносной разработки</small>
+      </div>
+      <div class="foot-links">
+        <a href="#about" data-cursor="hover">что такое лендинг</a>
+        <a href="#services" data-cursor="hover">услуги</a>
+        <a href="#process" data-cursor="hover">процесс</a>
+        <a href="#contact" data-cursor="hover">связаться</a>
+      </div>
+      <div class="foot-meta">
+        <a href="https://t.me/mirabell" target="_blank" rel="noopener" data-cursor="hover">@mirabell</a>
+        <a href="tel:+79991110866" data-cursor="hover">+7 999 111 08 66</a>
+        <a href="mailto:emils99mail@gmail.com" data-cursor="hover">emils99mail@gmail.com</a>
+      </div>
+      <div class="foot-rights">
+        © 2026 — СУТКИ. сайт сделан за сутки. естественно.
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

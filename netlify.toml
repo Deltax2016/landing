@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# фронт стучится в /api/send — пробрасываем в Netlify Function
+[[redirects]]
+  from = "/api/*"
+  to   = "/.netlify/functions/:splat"
+  status = 200
+
+# на всякий — современный node для функций
+[functions]
+  node_bundler = "esbuild"
+
+[functions.send]
+  # явно фиксируем рантайм — у Netlify сейчас по умолчанию Node 20
