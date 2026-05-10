@@ -15,7 +15,6 @@
       setTimeout(() => {
         initialReveal();
         startObservers();
-        startCurl();
       }, 200);
     }, 950);
   });
@@ -127,9 +126,9 @@
 
   document.querySelectorAll('[data-counter]').forEach((el) => counterIO.observe(el));
 
-  /* ---------- PARALLAX LAYERS ---------- */
+  /* ---------- PARALLAX LAYERS (desktop only) ---------- */
   const parallaxEls = document.querySelectorAll('[data-parallax]');
-  if (!reduceMotion && parallaxEls.length) {
+  if (!reduceMotion && !isTouch && parallaxEls.length) {
     function update() {
       const scrollY = window.scrollY;
       parallaxEls.forEach((el) => {
@@ -141,60 +140,6 @@
       requestAnimationFrame(update);
     }
     requestAnimationFrame(update);
-  }
-
-  /* ---------- ROLL CURL: section perspective tilt ---------- */
-  // Each section tilts on rotateX based on its position in the viewport.
-  // Sections at the top of the visible area curl backwards (rolling into the
-  // top roll); sections at the bottom curl forward (unrolling from the
-  // bottom roll). At rest in the center, sections sit flat.
-  function startCurl() {
-    if (reduceMotion) return;
-    const sections = Array.from(document.querySelectorAll('section[data-section]'));
-    if (!sections.length) return;
-
-    // Visible page area between the two rolls.
-    const cssVar = (name) => {
-      const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-      return parseInt(v, 10) || 0;
-    };
-    const headerH = cssVar('--header-h');
-    const rollH   = cssVar('--roll-h');
-
-    // Curl strength (degrees). Subtle by design.
-    const MAX_TILT = 11;
-
-    function tick() {
-      const vh        = window.innerHeight;
-      const topEdge   = headerH + rollH;          // top of paper area
-      const bottomEdge = vh - rollH;              // bottom of paper area
-      const paperH    = bottomEdge - topEdge;
-      const paperMid  = topEdge + paperH / 2;
-
-      sections.forEach((sec) => {
-        const r = sec.getBoundingClientRect();
-        // skip sections far off-screen for perf — leave last value in place,
-        // they're invisible anyway, so no visual jump.
-        if (r.bottom < topEdge - 100 || r.top > bottomEdge + 100) return;
-
-        const sectionMid = r.top + r.height / 2;
-        // -1 (section is at bottom edge), 0 (middle), +1 (section is at top edge)
-        const distance = (paperMid - sectionMid) / (paperH / 2);
-        const clamped  = Math.max(-1.2, Math.min(1.2, distance));
-
-        // Section near top edge → curls backward (positive rotateX)
-        // Section near bottom edge → curls forward toward viewer (negative rotateX)
-        const rot = clamped * MAX_TILT;
-        // Pull section slightly back when curling for a subtle depth effect.
-        const tz  = -Math.abs(clamped) * 30;
-
-        sec.style.setProperty('--rot', `${rot.toFixed(2)}deg`);
-        sec.style.setProperty('--tz',  `${tz.toFixed(1)}px`);
-      });
-
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
   }
 
   /* ---------- CONTACT FORM ---------- */

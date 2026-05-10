@@ -27,7 +27,6 @@
   --pad-x:        clamp(20px, 4vw, 56px);
 
   --header-h:     66px;
-  --roll-h:       18px;
 }
 
 * {
@@ -38,7 +37,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + var(--roll-h) + 4px);
+  scroll-padding-top: calc(var(--header-h) + 8px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,91 +95,6 @@ button { font-family: inherit; }
   filter: url(#noiseFilter);
 }
 
-/* ============================================
-   ROLL EDGES (paper scroll metaphor)
-   The page appears to unroll from the bottom roll
-   and roll up into the top roll as you scroll.
-   ============================================ */
-.roll {
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: var(--roll-h);
-  z-index: 90;
-  pointer-events: none;
-  background:
-    /* tiny grain on the cylinder */
-    repeating-linear-gradient(90deg,
-      rgba(0,0,0,0.0) 0px,
-      rgba(0,0,0,0.0) 2px,
-      rgba(255,255,255,0.025) 2px,
-      rgba(255,255,255,0.025) 3px),
-    /* cylindrical shading */
-    linear-gradient(to bottom,
-      #07070a 0%,
-      #1a1612 18%,
-      #3a2c1f 42%,
-      #6e4a26 50%,
-      #3a2c1f 58%,
-      #1a1612 82%,
-      #07070a 100%);
-  border-top: 1px solid rgba(0,0,0,0.6);
-  border-bottom: 1px solid rgba(0,0,0,0.6);
-  overflow: hidden;
-}
-.roll-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom,
-    transparent 38%,
-    rgba(255, 180, 100, 0.55) 49%,
-    rgba(255, 220, 170, 0.7) 50%,
-    rgba(255, 180, 100, 0.55) 51%,
-    transparent 62%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-.roll-top {
-  top: var(--header-h);
-  box-shadow:
-    0 1px 0 rgba(255, 92, 31, 0.15),
-    0 18px 28px -14px rgba(0, 0, 0, 0.8),
-    0 36px 50px -20px rgba(0, 0, 0, 0.55);
-}
-.roll-bottom {
-  bottom: 0;
-  box-shadow:
-    0 -1px 0 rgba(255, 92, 31, 0.15),
-    0 -18px 28px -14px rgba(0, 0, 0, 0.8),
-    0 -36px 50px -20px rgba(0, 0, 0, 0.55);
-}
-
-/* curl shadows just inside the visible page area */
-.roll-top::after,
-.roll-bottom::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 28px;
-  pointer-events: none;
-}
-.roll-top::after {
-  bottom: -28px;
-  background: linear-gradient(to bottom,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0));
-}
-.roll-bottom::after {
-  top: -28px;
-  background: linear-gradient(to top,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0));
-}
-
-@media (max-width: 700px) {
-  :root { --roll-h: 14px; }
-}
 
 /* ============================================
    INTRO LOADER
@@ -380,7 +294,7 @@ button { font-family: inherit; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(72px, 16vw, 240px);
+  font-size: clamp(58px, 16vw, 240px);
   line-height: 0.92;
   letter-spacing: -0.035em;
   margin: 0 0 clamp(28px, 4vh, 44px);
@@ -568,16 +482,7 @@ button { font-family: inherit; }
    ============================================ */
 section[data-section] {
   position: relative;
-  padding: clamp(80px, 14vh, 160px) 0;
-  transform-origin: 50% 50%;
-  transform: perspective(1600px) rotateX(var(--rot, 0deg)) translateZ(var(--tz, 0px));
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-main {
-  display: block;
-  perspective-origin: 50% 50%;
+  padding: clamp(60px, 10vh, 140px) 0;
 }
 
 .section-head {
@@ -598,7 +503,7 @@ main {
 .section-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(48px, 8.5vw, 130px);
+  font-size: clamp(36px, 8.5vw, 130px);
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: var(--fg);
@@ -627,9 +532,11 @@ main {
   background: linear-gradient(180deg, var(--bg-2), var(--bg));
   transition: transform 0.6s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
 }
-.about-card:hover {
-  border-color: var(--line-strong);
-  background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
+@media (hover: hover) {
+  .about-card:hover {
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
+  }
 }
 .about-num {
   font-family: var(--font-mono);
@@ -691,7 +598,7 @@ main {
 .offer-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(56px, 11vw, 180px);
+  font-size: clamp(46px, 11vw, 180px);
   line-height: 0.92;
   letter-spacing: -0.035em;
   margin: 0;
@@ -746,11 +653,10 @@ main {
   color: var(--fg);
   transition: padding-left 0.4s var(--ease), color 0.3s var(--ease);
 }
-.oitem:hover {
-  padding-left: 12px;
-  color: var(--fg);
+@media (hover: hover) {
+  .oitem:hover { padding-left: 12px; }
+  .oitem:hover span { color: var(--accent); }
 }
-.oitem:hover span { color: var(--accent); }
 .oitem span {
   font-family: var(--font-mono);
   color: var(--fg-mute);
@@ -820,9 +726,11 @@ main {
   transition: opacity 0.4s var(--ease);
   pointer-events: none;
 }
-.service-card:hover { border-color: var(--line-strong); background: var(--bg-3); }
-.service-card:hover::before { opacity: 1; }
-.service-card:hover .sc-arrow { transform: translate(2px, -2px); color: var(--accent); }
+@media (hover: hover) {
+  .service-card:hover { border-color: var(--line-strong); background: var(--bg-3); }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover .sc-arrow { transform: translate(2px, -2px); color: var(--accent); }
+}
 
 .service-card.highlight {
   background: linear-gradient(180deg, rgba(255, 92, 31, 0.08), transparent);
@@ -916,7 +824,6 @@ main {
   transition: padding-left 0.5s var(--ease);
 }
 .step:last-child { border-bottom: 1px solid var(--line); }
-.step:hover { padding-left: 16px; }
 .step::before {
   content: "";
   position: absolute;
@@ -927,7 +834,10 @@ main {
   background: var(--accent);
   transition: width 0.7s var(--ease);
 }
-.step:hover::before { width: 100%; }
+@media (hover: hover) {
+  .step:hover { padding-left: 16px; }
+  .step:hover::before { width: 100%; }
+}
 
 .step-time {
   font-family: var(--font-mono);
@@ -1223,6 +1133,64 @@ main {
   font-size: 12px;
   color: var(--fg-mute);
   letter-spacing: 0.05em;
+}
+
+/* ============================================
+   MOBILE OVERRIDES
+   ============================================ */
+
+/* nav — тоньше кнопка на маленьких экранах */
+@media (max-width: 480px) {
+  .nav-cta { padding: 8px 14px; font-size: 12px; }
+  .nav-cta svg { display: none; }
+}
+
+/* hero — кнопки в колонку, pill переносится */
+@media (max-width: 540px) {
+  .hero-pill { white-space: normal; line-height: 1.4; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* offer — цену выровнять влево при переносе */
+@media (max-width: 640px) {
+  .offer-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .offer-price { align-items: flex-start; text-align: left; }
+}
+
+/* stats — 1 колонка на маленьких экранах */
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 0; }
+  .stat-num { font-size: clamp(52px, 14vw, 80px); }
+}
+
+/* contact-direct — длинный номер не переносится */
+@media (max-width: 480px) {
+  .contact-direct-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 0; }
+  .cd-value { font-size: clamp(18px, 5vw, 24px); }
+}
+
+/* form footer — кнопка и текст в колонку */
+@media (max-width: 560px) {
+  .form-foot { flex-direction: column; align-items: stretch; }
+  .submit-btn { width: 100%; min-width: unset; }
+  .form-policy { min-width: unset; }
+}
+
+/* service cards — меньший min-height на мобиле */
+@media (max-width: 600px) {
+  .service-card { min-height: 220px; padding: 22px 20px 20px; }
+}
+
+/* about cards — меньше padding на мобиле */
+@media (max-width: 600px) {
+  .about-card { padding: 26px 22px 22px; }
+  .about-card h3 { font-size: 26px; }
+}
+
+/* offer side — убрать sticky-feel, нормальный поток */
+@media (max-width: 900px) {
+  .offer-side { height: auto; }
 }
 
 /* ============================================
