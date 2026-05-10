@@ -91,7 +91,7 @@ export default async function handler(req, res) {
         subject,
         html,
         text,
-        reply_to: /@/.test(contact) ? contact : undefined,
+        reply_to: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) ? contact : undefined,
       }),
     });
 

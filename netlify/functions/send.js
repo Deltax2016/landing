@@ -93,7 +93,7 @@ exports.handler = async (event) => {
         subject,
         html,
         text,
-        reply_to: /@/.test(contact) ? contact : undefined,
+        reply_to: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) ? contact : undefined,
       }),
     });
 

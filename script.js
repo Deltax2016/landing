@@ -211,7 +211,7 @@
         form.reset();
       } catch (err) {
         status.className = 'form-status error';
-        status.textContent = 'что-то пошло не так. напишите напрямую в telegram @mirabell или на +7 999 111 08 66.';
+        status.textContent = 'что-то пошло не так. напишите в telegram @mirabell200, whatsapp или позвоните: +7 999 111 08 66.';
       } finally {
         submitBtn.querySelector('.bt-text').textContent = oldText;
         submitBtn.disabled = false;
