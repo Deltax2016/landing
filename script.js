@@ -142,6 +142,29 @@
     requestAnimationFrame(update);
   }
 
+  /* ---------- OFFER LIST ACCORDION ---------- */
+  document.querySelectorAll('.oitem-head').forEach((btn) => {
+    const body = btn.nextElementSibling;
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // close all others
+      document.querySelectorAll('.oitem-head[aria-expanded="true"]').forEach((other) => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.style.maxHeight = '0';
+        }
+      });
+      // toggle current
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        body.style.maxHeight = '0';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
   /* ---------- CONTACT FORM ---------- */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
